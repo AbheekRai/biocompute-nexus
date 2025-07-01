@@ -52,11 +52,11 @@ const Navbar = () => {
             e.preventDefault();
             scrollToTop();
           }}
-          aria-label="Pulse Robot"
+          aria-label="BioCompute Nexus"
         >
           <img 
             src="/logo.svg" 
-            alt="Pulse Robot Logo" 
+            alt="BioCompute Nexus Logo" 
             className="h-7 sm:h-8" 
           />
         </a>
@@ -73,8 +73,8 @@ const Navbar = () => {
           >
             Home
           </a>
-          <a href="#features" className="nav-link">About</a>
-          <a href="#details" className="nav-link">Contact</a>
+          <a href="#features" className="nav-link">Tools</a>
+          <a href="#details" className="nav-link">Databases</a>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -113,7 +113,7 @@ const Navbar = () => {
               document.body.style.overflow = '';
             }}
           >
-            About
+            Tools
           </a>
           <a 
             href="#details" 
@@ -123,7 +123,7 @@ const Navbar = () => {
               document.body.style.overflow = '';
             }}
           >
-            Contact
+            Databases
           </a>
         </nav>
       </div>

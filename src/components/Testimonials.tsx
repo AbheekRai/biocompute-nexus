@@ -10,27 +10,27 @@ interface TestimonialProps {
 }
 
 const testimonials: TestimonialProps[] = [{
-  content: "Atlas transformed our production line, handling repetitive tasks while our team focuses on innovation. 30% increase in output within three months.",
-  author: "Sarah Chen",
-  role: "VP of Operations, Axion Manufacturing",
+  content: "BioCompute Nexus transformed our genomics pipeline, automating complex analyses while our team focuses on interpretation. 40% reduction in processing time within two months.",
+  author: "Dr. Sarah Chen",
+  role: "Principal Investigator, Genomics Institute",
   gradient: "from-blue-700 via-indigo-800 to-purple-900",
   backgroundImage: "/background-section1.png"
 }, {
-  content: "Implementing Atlas in our fulfillment centers reduced workplace injuries by 40% while improving order accuracy. The learning capabilities are remarkable.",
-  author: "Michael Rodriguez",
-  role: "Director of Logistics, GlobalShip",
+  content: "Implementing BioCompute Nexus in our drug discovery workflow improved compound screening accuracy by 35% while reducing computational overhead. The database integration is seamless.",
+  author: "Dr. Michael Rodriguez",
+  role: "Head of Computational Biology, PharmaTech",
   gradient: "from-indigo-900 via-purple-800 to-orange-500",
   backgroundImage: "/background-section2.png"
 }, {
-  content: "Atlas adapted to our lab protocols faster than any system we've used. It's like having another researcher who never gets tired and maintains perfect precision.",
+  content: "BioCompute Nexus adapted to our proteomics protocols faster than any platform we've used. It's like having another bioinformatician who never gets tired and maintains perfect accuracy.",
   author: "Dr. Amara Patel",
-  role: "Lead Scientist, BioAdvance Research",
+  role: "Lead Scientist, Protein Research Lab",
   gradient: "from-purple-800 via-pink-700 to-red-500",
   backgroundImage: "/background-section3.png"
 }, {
-  content: "As a mid-size business, we never thought advanced robotics would be accessible to us. Atlas changed that equation entirely with its versatility and ease of deployment.",
-  author: "Jason Lee",
-  role: "CEO, Innovative Solutions Inc.",
+  content: "As a smaller research institution, we never thought advanced bioinformatics tools would be accessible to us. BioCompute Nexus changed that with its user-friendly interface and comprehensive databases.",
+  author: "Prof. Jason Lee",
+  role: "Director, Computational Biology Center",
   gradient: "from-orange-600 via-red-500 to-purple-600",
   backgroundImage: "/background-section1.png"
 }];
@@ -64,11 +64,11 @@ const Testimonials = () => {
         <div className="flex items-center gap-4 mb-6">
           <div className="pulse-chip">
             <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">04</span>
-            <span>Testimonials</span>
+            <span>Research Impact</span>
           </div>
         </div>
         
-        <h2 className="text-5xl font-display font-bold mb-12 text-left">What others say</h2>
+        <h2 className="text-5xl font-display font-bold mb-12 text-left">What researchers say</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => <TestimonialCard key={index} content={testimonial.content} author={testimonial.author} role={testimonial.role} gradient={testimonial.gradient} backgroundImage={testimonial.backgroundImage} />)}

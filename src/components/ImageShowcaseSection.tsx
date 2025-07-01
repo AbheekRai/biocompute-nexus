@@ -7,28 +7,29 @@ const ImageShowcaseSection = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 animate-on-scroll">
           <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight text-gray-900 mb-3 sm:mb-4">
-            Experience the Future Today
+            Experience Next-Gen Bioinformatics
           </h2>
           <p className="text-base sm:text-lg text-gray-600">
-            Our cutting-edge humanoid robot is designed to transform how we interact 
-            with technology in everyday environments.
+            Our comprehensive suite of bioinformatics tools and databases is designed 
+            to accelerate research and discovery in computational biology.
           </p>
         </div>
         
         <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant mx-auto max-w-4xl animate-on-scroll">
           <div className="w-full">
             <img 
-              src="/lovable-uploads/c3d5522b-6886-4b75-8ffc-d020016bb9c2.png" 
-              alt="Advanced humanoid robot with orange and white design" 
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" 
+              alt="Bioinformatics data analysis and visualization interface" 
               className="w-full h-auto object-cover"
             />
           </div>
           <div className="bg-white p-4 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-display font-semibold mb-3 sm:mb-4">Next Generation Robotics</h3>
+            <h3 className="text-xl sm:text-2xl font-display font-semibold mb-3 sm:mb-4">Advanced Computational Biology</h3>
             <p className="text-gray-700 text-sm sm:text-base">
-              Built with precision engineering and sophisticated AI, our robots seamlessly 
-              integrate into various environments, from homes to hospitals, providing 
-              assistance and enriching human experiences.
+              Built with cutting-edge algorithms and comprehensive databases, our platform 
+              seamlessly integrates into various research environments, from academic labs 
+              to pharmaceutical companies, providing powerful analysis capabilities and 
+              enriching biological discoveries.
             </p>
           </div>
         </div>
