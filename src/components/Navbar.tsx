@@ -59,6 +59,7 @@ const Navbar = () => {
             alt="BioCompute Nexus Logo" 
             className="h-7 sm:h-8" 
           />
+          <span className="text-xl font-bold text-gray-800">BioCompute Nexus</span>
         </Link>
 
         {/* Desktop Navigation */}
