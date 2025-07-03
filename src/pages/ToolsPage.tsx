@@ -1,6 +1,5 @@
-
 import React, { useEffect, useState } from "react";
-import { ArrowRight, Search, Filter, Database, Wrench, Cpu, BarChart3, Code, GitBranch, Dna, Microscope, Brain, Activity, Zap, FileText, Globe, Layers } from "lucide-react";
+import { ArrowRight, Search, Filter, Database, Wrench, Cpu, BarChart3, Code, GitBranch, Dna, Microscope, Brain, Activity, Zap, FileText, Globe, Layers, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -32,201 +31,223 @@ const ToolsPage = () => {
   const tools = [
     {
       id: 1,
-      name: "Sequence Alignment Toolkit",
+      name: "BLAST (Basic Local Alignment Search Tool)",
       category: "sequence",
       type: "Tool",
-      description: "Advanced multiple sequence alignment with BLAST integration and phylogenetic analysis capabilities.",
+      description: "NCBI's sequence similarity search tool for comparing nucleotide or protein sequences against databases.",
       icon: <Code className="w-6 h-6" />,
-      features: ["BLAST Search", "Multiple Alignment", "Phylogenetic Trees"],
+      features: ["Protein BLAST", "Nucleotide BLAST", "Genome Search"],
       status: "Available",
-      url: "/tools/sequence-alignment"
+      url: "https://blast.ncbi.nlm.nih.gov/Blast.cgi"
     },
     {
       id: 2,
-      name: "GenBank Repository",
+      name: "UniProt",
       category: "database",
       type: "Database",
-      description: "Complete access to NCBI GenBank with over 200 million genetic sequences from all species.",
-      icon: <Database className="w-6 h-6" />,
-      features: ["200M+ Sequences", "Real-time Updates", "API Access"],
-      status: "Available",
-      url: "/tools/genbank"
-    },
-    {
-      id: 3,
-      name: "Protein Structure Predictor",
-      category: "structure",
-      type: "Tool",
-      description: "AI-powered protein structure prediction using AlphaFold-inspired algorithms.",
-      icon: <Cpu className="w-6 h-6" />,
-      features: ["3D Structure", "Confidence Scores", "Interactive Viewer"],
-      status: "Beta",
-      url: "/tools/protein-structure"
-    },
-    {
-      id: 4,
-      name: "UniProt Database",
-      category: "database",
-      type: "Database",
-      description: "Comprehensive protein sequence and functional information repository.",
+      description: "Comprehensive protein sequence and functional information database with expert curation.",
       icon: <Database className="w-6 h-6" />,
       features: ["Protein Sequences", "Functional Annotations", "Cross-references"],
       status: "Available",
-      url: "/tools/uniprot"
+      url: "https://www.uniprot.org/"
+    },
+    {
+      id: 3,
+      name: "NCBI GenBank",
+      category: "database",
+      type: "Database",
+      description: "NIH genetic sequence database containing annotated collection of all publicly available DNA sequences.",
+      icon: <Database className="w-6 h-6" />,
+      features: ["DNA Sequences", "Genome Data", "Literature Links"],
+      status: "Available",
+      url: "https://www.ncbi.nlm.nih.gov/genbank/"
+    },
+    {
+      id: 4,
+      name: "Protein Data Bank (PDB)",
+      category: "structure",
+      type: "Database",
+      description: "Archive of 3D structural data of biological macromolecules including proteins and nucleic acids.",
+      icon: <Cpu className="w-6 h-6" />,
+      features: ["3D Structures", "X-ray Crystallography", "NMR Data"],
+      status: "Available",
+      url: "https://www.rcsb.org/"
     },
     {
       id: 5,
-      name: "NGS Data Processor",
-      category: "genomics",
-      type: "Tool",
-      description: "High-throughput sequencing data processing pipeline with quality control and variant calling.",
-      icon: <BarChart3 className="w-6 h-6" />,
-      features: ["Quality Control", "Variant Calling", "Batch Processing"],
-      status: "Coming Soon",
-      url: "/tools/ngs-processor"
+      name: "EMBL-EBI",
+      category: "database",
+      type: "Database",
+      description: "European Bioinformatics Institute providing freely available data and bioinformatics services.",
+      icon: <Globe className="w-6 h-6" />,
+      features: ["Multiple Databases", "Analysis Tools", "Training Resources"],
+      status: "Available",
+      url: "https://www.ebi.ac.uk/"
     },
     {
       id: 6,
-      name: "Pathway Analysis Suite",
-      category: "analysis",
-      type: "Tool",
-      description: "Comprehensive pathway enrichment analysis with KEGG and GO integration.",
+      name: "KEGG (Kyoto Encyclopedia)",
+      category: "database",
+      type: "Database",
+      description: "Database resource for understanding high-level functions and utilities of the biological system.",
       icon: <GitBranch className="w-6 h-6" />,
-      features: ["KEGG Pathways", "GO Enrichment", "Network Visualization"],
+      features: ["Pathway Maps", "Genome Analysis", "Drug Information"],
       status: "Available",
-      url: "/tools/pathway-analysis"
+      url: "https://www.genome.jp/kegg/"
     },
     {
       id: 7,
-      name: "EMBL-EBI Database",
-      category: "database",
-      type: "Database",
-      description: "European Molecular Biology Laboratory database with nucleotide sequences and protein structures.",
-      icon: <Globe className="w-6 h-6" />,
-      features: ["Nucleotide Sequences", "Protein Structures", "Literature Links"],
+      name: "Clustal Omega",
+      category: "sequence",
+      type: "Tool",
+      description: "Multiple sequence alignment program for proteins and nucleotide sequences using HMM profile-profile techniques.",
+      icon: <Code className="w-6 h-6" />,
+      features: ["Multiple Alignment", "Phylogenetic Trees", "Large Datasets"],
       status: "Available",
-      url: "/tools/embl-ebi"
+      url: "https://www.ebi.ac.uk/Tools/msa/clustalo/"
     },
     {
       id: 8,
-      name: "Genome Browser",
+      name: "UCSC Genome Browser",
       category: "genomics",
       type: "Tool",
-      description: "Interactive genome visualization tool with annotation layers and comparative genomics.",
+      description: "Interactive genome browser for visualizing genomic data and annotations across multiple species.",
       icon: <Dna className="w-6 h-6" />,
-      features: ["Genome Visualization", "Annotation Tracks", "Comparative Analysis"],
+      features: ["Genome Visualization", "Custom Tracks", "Comparative Genomics"],
       status: "Available",
-      url: "/tools/genome-browser"
+      url: "https://genome.ucsc.edu/"
     },
     {
       id: 9,
-      name: "Drug Discovery Database",
+      name: "Ensembl",
       category: "database",
       type: "Database",
-      description: "Comprehensive chemical compound database for drug discovery and molecular docking studies.",
-      icon: <Microscope className="w-6 h-6" />,
-      features: ["Chemical Compounds", "Drug Targets", "Molecular Properties"],
+      description: "Genome database providing automatic annotation on selected eukaryotic genomes with comparative genomics.",
+      icon: <Dna className="w-6 h-6" />,
+      features: ["Genome Annotation", "Comparative Analysis", "Variation Data"],
       status: "Available",
-      url: "/tools/drug-discovery"
+      url: "https://www.ensembl.org/"
     },
     {
       id: 10,
-      name: "Machine Learning Classifier",
-      category: "analysis",
-      type: "Tool",
-      description: "AI-powered biological data classification using deep learning and ensemble methods.",
-      icon: <Brain className="w-6 h-6" />,
-      features: ["Deep Learning", "Feature Selection", "Model Training"],
-      status: "Beta",
-      url: "/tools/ml-classifier"
+      name: "InterPro",
+      category: "database",
+      type: "Database",
+      description: "Integrated database of protein families, domains and functional sites with predictive models.",
+      icon: <Layers className="w-6 h-6" />,
+      features: ["Protein Classification", "Domain Architecture", "Functional Annotation"],
+      status: "Available",
+      url: "https://www.ebi.ac.uk/interpro/"
     },
     {
       id: 11,
-      name: "Metabolomics Analyzer",
-      category: "analysis",
-      type: "Tool",
-      description: "Advanced metabolomic data analysis with pathway mapping and statistical analysis.",
-      icon: <Activity className="w-6 h-6" />,
-      features: ["Metabolite Identification", "Pathway Mapping", "Statistical Analysis"],
+      name: "ChEMBL",
+      category: "database",
+      type: "Database",
+      description: "Database of bioactive molecules with drug-like properties maintained by the European Bioinformatics Institute.",
+      icon: <Microscope className="w-6 h-6" />,
+      features: ["Drug Compounds", "Bioactivity Data", "Target Information"],
       status: "Available",
-      url: "/tools/metabolomics"
+      url: "https://www.ebi.ac.uk/chembl/"
     },
     {
       id: 12,
-      name: "Phylogenetic Tree Builder",
-      category: "sequence",
-      type: "Tool",
-      description: "Construct phylogenetic trees using multiple algorithms with bootstrap support.",
+      name: "STRING",
+      category: "database",
+      type: "Database",
+      description: "Database of known and predicted protein-protein interactions including direct and indirect associations.",
       icon: <GitBranch className="w-6 h-6" />,
-      features: ["Multiple Algorithms", "Bootstrap Support", "Tree Visualization"],
+      features: ["Protein Networks", "Functional Enrichment", "Comparative Analysis"],
       status: "Available",
-      url: "/tools/phylogenetic"
+      url: "https://string-db.org/"
     },
     {
       id: 13,
-      name: "Protein-Protein Interaction DB",
-      category: "database",
-      type: "Database",
-      description: "Comprehensive database of protein-protein interactions with experimental evidence.",
-      icon: <Layers className="w-6 h-6" />,
-      features: ["Interaction Networks", "Experimental Evidence", "Functional Annotations"],
+      name: "Galaxy",
+      category: "analysis",
+      type: "Platform",
+      description: "Open, web-based platform for accessible, reproducible, and transparent computational research.",
+      icon: <BarChart3 className="w-6 h-6" />,
+      features: ["Workflow Management", "Data Analysis", "Reproducible Research"],
       status: "Available",
-      url: "/tools/ppi-database"
+      url: "https://usegalaxy.org/"
     },
     {
       id: 14,
-      name: "RNA-Seq Analysis Pipeline",
-      category: "genomics",
-      type: "Tool",
-      description: "Complete RNA-seq data analysis from raw reads to differential expression analysis.",
-      icon: <Zap className="w-6 h-6" />,
-      features: ["Read Alignment", "Expression Quantification", "Differential Analysis"],
+      name: "Pfam",
+      category: "database",
+      type: "Database",
+      description: "Database of protein families and domains based on multiple sequence alignments and hidden Markov models.",
+      icon: <Code className="w-6 h-6" />,
+      features: ["Protein Families", "Domain Architecture", "Phylogenetic Trees"],
       status: "Available",
-      url: "/tools/rnaseq-pipeline"
+      url: "http://pfam.xfam.org/"
     },
     {
       id: 15,
-      name: "Molecular Dynamics Simulator",
-      category: "structure",
+      name: "DAVID",
+      category: "analysis",
       type: "Tool",
-      description: "High-performance molecular dynamics simulations for protein and nucleic acid systems.",
-      icon: <Activity className="w-6 h-6" />,
-      features: ["MD Simulations", "Force Fields", "Trajectory Analysis"],
-      status: "Beta",
-      url: "/tools/md-simulator"
+      description: "Database for Annotation, Visualization and Integrated Discovery providing functional annotation tools.",
+      icon: <BarChart3 className="w-6 h-6" />,
+      features: ["Gene Ontology", "Pathway Analysis", "Functional Classification"],
+      status: "Available",
+      url: "https://david.ncifcrf.gov/"
     },
     {
       id: 16,
-      name: "Variant Annotation Database",
-      category: "database",
+      name: "AlphaFold Protein Structure Database",
+      category: "structure",
       type: "Database",
-      description: "Comprehensive genetic variant annotation with clinical significance and population frequencies.",
-      icon: <FileText className="w-6 h-6" />,
-      features: ["Clinical Annotations", "Population Data", "Functional Predictions"],
+      description: "DeepMind's AI-predicted protein structures covering the human proteome and other key organisms.",
+      icon: <Brain className="w-6 h-6" />,
+      features: ["AI Predictions", "Confidence Scores", "3D Visualization"],
       status: "Available",
-      url: "/tools/variant-annotation"
+      url: "https://alphafold.ebi.ac.uk/"
     },
     {
       id: 17,
-      name: "Primer Design Tool",
-      category: "sequence",
-      type: "Tool",
-      description: "Automated primer design for PCR, qPCR, and sequencing applications with optimization.",
-      icon: <Code className="w-6 h-6" />,
-      features: ["PCR Primers", "qPCR Design", "Specificity Check"],
+      name: "NCBI RefSeq",
+      category: "database",
+      type: "Database",
+      description: "Non-redundant collection of reference sequences including genomic, transcript, and protein records.",
+      icon: <FileText className="w-6 h-6" />,
+      features: ["Reference Sequences", "Genome Assemblies", "Annotation Data"],
       status: "Available",
-      url: "/tools/primer-design"
+      url: "https://www.ncbi.nlm.nih.gov/refseq/"
     },
     {
       id: 18,
-      name: "Microbiome Analysis Suite",
-      category: "analysis",
-      type: "Tool",
-      description: "Comprehensive microbiome data analysis including diversity metrics and taxonomic profiling.",
-      icon: <Microscope className="w-6 h-6" />,
-      features: ["Taxonomic Profiling", "Diversity Analysis", "Comparative Studies"],
+      name: "ClinVar",
+      category: "database",
+      type: "Database",
+      description: "Public archive of reports of human genetic variation relationships to phenotypes with clinical significance.",
+      icon: <Activity className="w-6 h-6" />,
+      features: ["Genetic Variants", "Clinical Significance", "Population Data"],
       status: "Available",
-      url: "/tools/microbiome"
+      url: "https://www.ncbi.nlm.nih.gov/clinvar/"
+    },
+    {
+      id: 19,
+      name: "HMMER",
+      category: "sequence",
+      type: "Tool",
+      description: "Biosequence analysis using profile hidden Markov models for protein sequence homology searches.",
+      icon: <Code className="w-6 h-6" />,
+      features: ["HMM Profiles", "Homology Search", "Domain Annotation"],
+      status: "Available",
+      url: "http://hmmer.org/"
+    },
+    {
+      id: 20,
+      name: "Gene Ontology (GO)",
+      category: "database",
+      type: "Database",
+      description: "Structured vocabulary describing gene and gene product attributes across all species.",
+      icon: <GitBranch className="w-6 h-6" />,
+      features: ["Functional Annotation", "Ontology Terms", "Enrichment Analysis"],
+      status: "Available",
+      url: "http://geneontology.org/"
     }
   ];
 
@@ -234,7 +255,7 @@ const ToolsPage = () => {
     { id: "all", name: "All Categories", count: tools.length },
     { id: "sequence", name: "Sequence Analysis", count: tools.filter(t => t.category === "sequence").length },
     { id: "database", name: "Databases", count: tools.filter(t => t.category === "database").length },
-    { id: "structure", name: "Structure Prediction", count: tools.filter(t => t.category === "structure").length },
+    { id: "structure", name: "Structure", count: tools.filter(t => t.category === "structure").length },
     { id: "genomics", name: "Genomics", count: tools.filter(t => t.category === "genomics").length },
     { id: "analysis", name: "Analysis Tools", count: tools.filter(t => t.category === "analysis").length }
   ];
@@ -256,8 +277,7 @@ const ToolsPage = () => {
   };
 
   const handleAccessTool = (url: string) => {
-    // For now, just show an alert. In a real app, this would navigate to the tool page
-    alert(`Accessing tool: ${url}\n\nThis would navigate to the specific tool page in a real application.`);
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -385,9 +405,8 @@ const ToolsPage = () => {
                   onClick={() => handleAccessTool(tool.url)}
                   className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-pulse-500 hover:bg-pulse-600 text-white font-medium rounded-xl transition-all duration-300 group-hover:shadow-lg text-sm sm:text-base"
                 >
-                  <span className="hidden sm:inline">Access Tool</span>
-                  <span className="sm:hidden">Access</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  <span>Access Tool</span>
+                  <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
               </div>
             ))}
