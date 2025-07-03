@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +37,8 @@ const Navbar = () => {
     }
   };
 
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <header
       className={cn(
@@ -45,13 +49,9 @@ const Navbar = () => {
       )}
     >
       <div className="container flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a 
-          href="#" 
+        <Link 
+          to="/" 
           className="flex items-center space-x-2"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToTop();
-          }}
           aria-label="BioCompute Nexus"
         >
           <img 
@@ -59,22 +59,29 @@ const Navbar = () => {
             alt="BioCompute Nexus Logo" 
             className="h-7 sm:h-8" 
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
-          <a 
-            href="#" 
-            className="nav-link"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToTop();
-            }}
+          <Link 
+            to="/" 
+            className={cn(
+              "nav-link",
+              isActive("/") && "text-pulse-500"
+            )}
           >
             Home
-          </a>
-          <a href="#features" className="nav-link">Tools</a>
-          <a href="#details" className="nav-link">Databases</a>
+          </Link>
+          <Link 
+            to="/tools" 
+            className={cn(
+              "nav-link",
+              isActive("/tools") && "text-pulse-500"
+            )}
+          >
+            Tools & Databases
+          </Link>
+          <a href="#features" className="nav-link">About</a>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -93,18 +100,32 @@ const Navbar = () => {
         isMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
       )}>
         <nav className="flex flex-col space-y-8 items-center mt-8">
-          <a 
-            href="#" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToTop();
+          <Link 
+            to="/" 
+            className={cn(
+              "text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100",
+              isActive("/") && "text-pulse-500 bg-pulse-50"
+            )}
+            onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
             }}
           >
             Home
-          </a>
+          </Link>
+          <Link 
+            to="/tools" 
+            className={cn(
+              "text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100",
+              isActive("/tools") && "text-pulse-500 bg-pulse-50"
+            )}
+            onClick={() => {
+              setIsMenuOpen(false);
+              document.body.style.overflow = '';
+            }}
+          >
+            Tools & Databases
+          </Link>
           <a 
             href="#features" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
@@ -113,17 +134,7 @@ const Navbar = () => {
               document.body.style.overflow = '';
             }}
           >
-            Tools
-          </a>
-          <a 
-            href="#details" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
-            onClick={() => {
-              setIsMenuOpen(false);
-              document.body.style.overflow = '';
-            }}
-          >
-            Databases
+            About
           </a>
         </nav>
       </div>
