@@ -81,7 +81,15 @@ const Navbar = () => {
           >
             Tools & Databases
           </Link>
-          <a href="#features" className="nav-link">About</a>
+          <Link 
+            to="/about" 
+            className={cn(
+              "nav-link",
+              isActive("/about") && "text-pulse-500"
+            )}
+          >
+            About
+          </Link>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -126,16 +134,19 @@ const Navbar = () => {
           >
             Tools & Databases
           </Link>
-          <a 
-            href="#features" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+          <Link 
+            to="/about" 
+            className={cn(
+              "text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100",
+              isActive("/about") && "text-pulse-500 bg-pulse-50"
+            )}
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
             }}
           >
             About
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
